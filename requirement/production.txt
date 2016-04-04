@@ -1,0 +1,5 @@
+Django==1.9.4
+requests
+Pillow
+python-social-auth
+djangorestframework
