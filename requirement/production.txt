@@ -3,3 +3,4 @@ requests
 Pillow
 python-social-auth
 djangorestframework
+django-pipeline
