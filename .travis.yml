@@ -5,7 +5,7 @@ python:
 
 # command to install dependencies
 install: 
-    -pip install -r requirement/development.txt
+    - pip install -r requirement/development.txt
 # command to run tests
 script:
-    -pep8
+    - pep8
