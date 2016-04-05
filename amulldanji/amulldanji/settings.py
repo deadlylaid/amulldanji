@@ -4,6 +4,7 @@ import os
 # BASE_DIR is manage.py directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+PROJECT_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -113,6 +114,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# collectstatic할때 파일이 생성되는 경로
+STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'static')
+
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
