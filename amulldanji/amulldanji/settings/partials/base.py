@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'pipeline',
+
+    'items',
+
     ]
 
 MIDDLEWARE_CLASSES = [
