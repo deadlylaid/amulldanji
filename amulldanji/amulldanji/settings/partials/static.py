@@ -10,6 +10,11 @@ MEDIA_URL = '/media/'
 # collectstatic할때 파일이 생성되는 경로
 STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'static')
 
+BASE_DIR2 = os.path.dirname(BASE_DIR)
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR2, 'static'),
+]
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
@@ -19,11 +24,13 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
+# 파이프라인에서 scss 와 js 파일을 잡고
+# 각각 application.css / style.js 로 컴파일 합니다.
 PIPELINE = {
     'STYLESHEETS': {
         'applications': {
             'source_filenames': (
-              'css/*.css',
+              'css/*.scss',
             ),
             'output_filename': 'css/application.css',
         },
@@ -41,6 +48,11 @@ PIPELINE = {
     }
 }
 
-
+# yuglify -> CSS, JS 파일을 압축해줍니다.
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
+
+# sass -> SASS 파일을 CSS로 컴파일 해줍니다.
+PIPELINE['COMPILERS'] = (
+          'pipeline.compilers.sass.SASSCompiler',
+          )
