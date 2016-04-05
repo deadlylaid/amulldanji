@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     'pipeline',
 
+    'amulldanji',
     'items',
 
     ]
