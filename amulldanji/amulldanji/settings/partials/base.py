@@ -4,11 +4,10 @@ import os
 # BASE_DIR is manage.py directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-PROJECT_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '75nc3siz(ibqmsi(q&liw-+74g*6(p#k^wq4jfl4h_*5j#3g!('
 
@@ -29,9 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'pipeline',
-
-    'django_extensions',
-]
+    ]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,17 +62,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'amulldanji.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -107,22 +93,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-
-# collectstatic할때 파일이 생성되는 경로
-STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'static')
-
-
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'pipeline.finders.PipelineFinder',
-)
