@@ -47,7 +47,7 @@ PIPELINE = {
                 'js/*.js',
             ),
             'output_filename': 'js/main.js',
-        }, 
+            },
         'vendor': {
             'source_filenames': (
               'scss/vendor/*.js',
