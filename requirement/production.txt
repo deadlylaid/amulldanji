@@ -4,3 +4,6 @@ Pillow
 python-social-auth
 djangorestframework
 django-pipeline
+boto
+django-storages-redux
+
