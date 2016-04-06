@@ -6,7 +6,7 @@ from users.views import JoinusView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view()),
+    url(r'^$', HomeView.as_view(), name='home'),
     url(r'^joinus', JoinusView.as_view(), name='joinus'),
 
 ]
