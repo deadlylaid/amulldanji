@@ -30,21 +30,30 @@ PIPELINE = {
     'STYLESHEETS': {
         'applications': {
             'source_filenames': (
-              'css/*.scss',
+              'scss/*.scss',
             ),
             'output_filename': 'css/application.css',
         },
+        'vendor': {
+            'source_filenames': (
+              'scss/vendor/*.scss',
+            ),
+            'output_filename': 'css/vendor/vendor.css',
+        },
     },
     'JAVASCRIPT': {
-        'stats': {
+        'main_js': {
             'source_filenames': (
-                'js/jquery.js',
-                'js/d3.js',
-                'js/collections/*.js',
-                'js/application.js',
+                'js/*.js',
             ),
-            'output_filename': 'js/stlye.js',
-        }
+            'output_filename': 'js/main.js',
+            },
+        'vendor': {
+            'source_filenames': (
+              'scss/vendor/*.js',
+            ),
+            'output_filename': 'css/vendor/vendor.js',
+        },
     }
 }
 
