@@ -5,10 +5,10 @@ from django.db import models
 class User(AbstractUser):
 
     phone = models.CharField(
-            max_langth=11
+            max_length=11
             )
 
     address = models.CharField(
-            max_langth=30
+            max_length=30
             )
     ticket = models.IntegerField()
