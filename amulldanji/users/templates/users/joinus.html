@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}애물단지 | 회원가입{% endblock %}
+
+{% block content %}
+    <h1>회원가입</h1>
+
+    <form action="{% url "joinus" %}" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="id">
+        <input type="password" name="pw">
+        <input type="submit">  
+    </form>  
+{% endblock %}

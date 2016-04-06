@@ -30,13 +30,13 @@ PIPELINE = {
     'STYLESHEETS': {
         'applications': {
             'source_filenames': (
-              'scss/*.scss',
+              'css/*.css',
             ),
             'output_filename': 'css/application.css',
         },
         'vendor': {
             'source_filenames': (
-              'scss/vendor/*.scss',
+              'css/vendor/*.css',
             ),
             'output_filename': 'css/vendor/vendor.css',
         },
@@ -50,9 +50,9 @@ PIPELINE = {
             },
         'vendor': {
             'source_filenames': (
-              'scss/vendor/*.js',
+              'js/vendor/*.js',
             ),
-            'output_filename': 'css/vendor/vendor.js',
+            'output_filename': 'js/vendor/vendor.js',
         },
     }
 }

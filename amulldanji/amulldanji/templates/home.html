@@ -1,14 +1,16 @@
 {% load pipeline %}
 <!DOCTYPE html>
 <html lang="en">
-
+    {% stylesheet "vendor" %}
+    {% javascript "vendor" %}
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Material Design Bootstrap Template</title>
-    {% stylesheet "vendor" %}
-    {% javascript "vendor" %}
+  <title>애물단지</title>
+
+ <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -21,104 +23,177 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand waves-effect waves-light" href="#">MDBootstrap</a>
-</div>
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">List (click to expand) <span class="caret"></span></a>
-        <ul class="dropdown-menu" role="menu">
-          <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">Video Maker</a>
+        </button>
+        <a class="navbar-brand waves-effect waves-light" href="#">애물단지</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
           </li>
-          <li><a href="http://mdbootstrap.com/material-design-for-bootstrap/">Material Design for Bootstrap</a>
+          {% if request.user.is_authenticated %}
+          <li><a href="{% url "logout" %}" class="waves-effect waves-light">로그아웃<span class="sr-only">(current)</span></a>
           </li>
-          <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">Creative Agency</a>
+          {% else %}
+          <li><a href="{% url "login" %}" class="waves-effect waves-light">로그인<span class="sr-only">(current)</span></a>
           </li>
-          <li><a href="http://mdbootstrap.com/product/magic-portfolio-photographer">Photographer Portfolio</a>
-          </li>
-          <li class="divider"></li>
-          <li><a href="#footer">Footer</a>
+          {% endif %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">List (click to expand) <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">Video Maker</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/material-design-for-bootstrap/">Material Design for Bootstrap</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">Creative Agency</a>
+              </li>
+              <li><a href="http://mdbootstrap.com/product/magic-portfolio-photographer">Photographer Portfolio</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#footer">Footer</a>
+              </li>
+            </ul>
           </li>
         </ul>
+        <form class="navbar-form navbar-right waves-effect waves-light" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+ <!-- carousel -->
+  <div id="carousel-example-generic" class="carousel slide carousel-fade">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
       </li>
-    </ul>
-    <form class="navbar-form navbar-right waves-effect waves-light" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <!-- First slide -->
+      <div class="item active">
+        <div class="carousel-caption">
+          <div data-animation="animated fadeInRightBig">
+            <h4 class="h2-responsive">필요없다고 버리는게</h4>
+            <h2 class="h4-responsive">말이 되냐</h2>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
-</div>
-</nav>
-<!-- carousel -->
-<div id="carousel-example-generic" class="carousel slide carousel-fade">
+      <!-- /.item -->
 
-<!-- Indicators -->
-<ol class="carousel-indicators">
-  <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-  </li>
-  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-</ol>
-
-<!-- Wrapper for slides -->
-<div class="carousel-inner" role="listbox">
-
-  <!-- First slide -->
-  <div class="item active">
-    <div class="carousel-caption">
-      <div data-animation="animated fadeInRightBig">
-        <h2 class="h2-responsive">This is the caption for slide 1</h2>
-        <h4 class="h4-responsive">This is the caption for slide 1</h4>
+      <!-- Second slide -->
+      <div class="item">
+        <div class="carousel-caption">
+          <div data-animation="animated fadeInDownBig">
+            <h2 class="h2-responsive">This is the caption for slide 1</h2>
+            <h4 class="h4-responsive">This is the caption for slide 1</h4>
+          </div>
+        </div>
       </div>
+      <!-- /.item -->
+
+      <!-- Third slide -->
+      <div class="item">
+        <div class="carousel-caption">
+          <div data-animation="animated fadeInLeftBig">
+            <h2 class="h2-responsive">This is the caption for slide 1</h2>
+            <h4 class="h4-responsive">This is the caption for slide 1</h4>
+          </div>
+        </div>
+      </div>
+      <!-- /.item -->
+
     </div>
-  </div>
-  <!-- /.item -->
+    <!-- /.carousel-inner -->
 
-  <!-- Second slide -->
-  <div class="item">
-    <div class="carousel-caption">
-      <div data-animation="animated fadeInDownBig">
-        <h2 class="h2-responsive">This is the caption for slide 1</h2>
-        <h4 class="h4-responsive">This is the caption for slide 1</h4>
+    <!-- Controls -->
+    <a class="left carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="fa fa fa-angle-left waves-effect waves-light"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="fa fa fa-angle-right waves-effect waves-light"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+
+  </div>
+  <!-- /.carousel -->
+
+  <!-- Page content -->
+  <div class="container page-content">
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project1.png">
+            <span class="card-title">Video Maker</span>
+          </div>
+          <div class="card-content">
+            <p>Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- /.item -->
-
-<!-- Third slide -->
-  <div class="item">
-    <div class="carousel-caption">
-      <div data-animation="animated fadeInLeftBig">
-        <h2 class="h2-responsive">This is the caption for slide 1</h2>
-        <h4 class="h4-responsive">This is the caption for slide 1</h4>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project3.png">
+            <span class="card-title">Creative Agency</span>
+          </div>
+          <div class="card-content">
+            <p>Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
       </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4">
+        <div class="card hoverable">
+          <div class="card-image">
+            <img src="img/project4.png">
+            <span class="card-title">Photographer Portfolio</span>
+          </div>
+          <div class="card-content">
+            <p>Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with ...</p>
+          </div>
+          <div class="card-action">
+            <a href="http://mdbootstrap.com/product/magic-portfolio-photographer/">
+              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
     </div>
+    <!-- /.row -->
+
   </div>
-  <!-- /.item -->
+  <!-- /.container -->
+  </div>
+  <!--/. Page content -->
 
-</div>
-<!-- /.carousel-inner -->
 
-<!-- Controls -->
-<a class="left carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="prev">
-  <span class="fa fa fa-angle-left waves-effect waves-light"></span>
-  <span class="sr-only">Previous</span>
-</a>
-<a class="right carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="next">
-  <span class="fa fa fa-angle-right waves-effect waves-light"></span>
-  <span class="sr-only">Previous</span>
-</a>
 
-</div>
-<!-- /.carousel -->
-
-<!-- Page content -->
-<div class="container page-content">
-<!-- Content Row -->
+  <!-- Footer -->
   <footer class="page-footer info-color darken-1" if="footer">
     <div class="container">
       <div class="row">
@@ -165,65 +240,6 @@
 
 
 
-  <!-- SCRIPTS -->
-
-
-
 </body>
 
 </html>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card hoverable">
-      <div class="card-image">
-        <img src="img/project1.png">
-        <span class="card-title">Video Maker</span>
-      </div>
-      <div class="card-content">
-        <p>Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition...</p>
-      </div>
-      <div class="card-action">
-        <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
-          <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /.col-md-4 -->
-  <div class="col-md-4">
-    <div class="card hoverable">
-      <div class="card-image">
-        <img src="img/project3.png">
-        <span class="card-title">Creative Agency</span>
-      </div>
-      <div class="card-content">
-        <p>Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may...</p>
-      </div>
-      <div class="card-action">
-        <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
-          <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /.col-md-4 -->
-  <div class="col-md-4">
-    <div class="card hoverable">
-      <div class="card-image">
-        <img src="img/project4.png">
-        <span class="card-title">Photographer Portfolio</span>
-      </div>
-      <div class="card-content">
-        <p>Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with ...</p>
-      </div>
-      <div class="card-action">
-        <a href="http://mdbootstrap.com/product/magic-portfolio-photographer/">
-          <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-        </a>
-      </div>
-    </div>
-  </div>
-  <!-- /.col-md-4 -->
-</div>
-<!-- /.row -->
-
