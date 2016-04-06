@@ -12,8 +12,9 @@ class JoinusView(View):
                 "users/joinus.html",
                 context={}
                 )
+
     def post(self, request):
-        
+
         received_id = request.POST.get("id")
         received_pw = request.POST.get("pw")
 
@@ -21,7 +22,6 @@ class JoinusView(View):
                 username=received_id,
                 password=received_pw,
                 )
-       
         user = authenticate(
                 username=received_id,
                 password=received_pw,
