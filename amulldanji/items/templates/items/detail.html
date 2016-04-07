@@ -5,6 +5,7 @@
 {% block content %}
     <h1>ItemDetail</h1>
        <h2>업로더 :  {{ item.user }}</h2>
+       <p> 이미지 :<img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ post.title }}" width="400px" height="600px"/></p>
        <h1>제목 :  {{ item.title }} </h2>
        <h3>내용 : {{ item.content }} </h3> 
 

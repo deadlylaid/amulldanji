@@ -7,7 +7,9 @@
     
     <ul>
         {% for item in item_list %}
-        <li> {{ item.title }}</li>
+<img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ post.title }}" width="150px" height="300px"/>
+        <li>{{ item.user }} {{ item.title }}</li>
+
         {% endfor %} 
     </ul>
 {% endblock %}
