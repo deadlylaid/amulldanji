@@ -6,20 +6,22 @@ class Item(models.Model):
 
     user = models.ForeignKey(
             User,
-            related_name='items',
             )
 
+    image = models.ImageField(
+            null=True,
+            blank=True,
+            )
 
     title = models.CharField(
             max_length=50,
             )
 
-    created_time = models.DateTimeField(
+    content = models.TextField()
+
+    created_at = models.DateTimeField(
             auto_now_add=True,
             )
-
-
-    content = models.TextField()
 
     def __str__(self):
         return self.title

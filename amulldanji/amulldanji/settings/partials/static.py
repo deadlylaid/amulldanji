@@ -9,6 +9,7 @@ MEDIA_URL = '/media/'
 
 # collectstatic할때 파일이 생성되는 경로
 STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'static')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'media')
 
 BASE_DIR2 = os.path.dirname(BASE_DIR)
 
