@@ -1,7 +1,7 @@
-header#header{
+footer#footer{
     background-color:red;
 }
 
-footer#footer{
-    background-color:green;
+header#header{
+    background-color:blue;
 }

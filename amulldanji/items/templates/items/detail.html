@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}애물단지 | 상품 상세페이지{% endblock %}
+
+{% block content %}
+    <h1>ItemDetail</h1>
+       <h2>업로더 :  {{ item.user }}</h2>
+       <h1>제목 :  {{ item.title }} </h2>
+       <h3>내용 : {{ item.content }} </h3> 
+
+{% endblock %}

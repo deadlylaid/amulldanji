@@ -11,12 +11,6 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'static')
 MEDIA_ROOT = os.path.join(PROJECT_ROOT_DIR, 'dist', 'media')
 
-BASE_DIR2 = os.path.dirname(BASE_DIR)
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR2, 'static'),
-]
-
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 STATICFILES_FINDERS = (
