@@ -10,7 +10,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^$', ItemListView.as_view(), name='home'),
 
     url(r'^joinus/$', JoinusView.as_view(), name='joinus'),
     url(r'^login/$', LoginView.as_view(), name='login'),

@@ -6,5 +6,5 @@ class ItemListView(ListView):
 
     model = Item
 
-    template_name = "items/list.html"
+    template_name = "home.html"
     context_object_name = "item_list"
