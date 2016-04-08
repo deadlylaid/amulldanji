@@ -37,9 +37,11 @@
           </li>
           {% if request.user.is_authenticated %}
           <li><a href="{% url "logout" %}" class="waves-effect waves-light">로그아웃<span class="sr-only">(current)</span></a>
+          <li><a href="{% url "mypage" user.id %}" class="waves-effect waves-light">마이페이지<span class="sr-only">(current)</span></a>
           </li>
           {% else %}
           <li><a href="{% url "login" %}" class="waves-effect waves-light">로그인<span class="sr-only">(current)</span></a>
+          <li><a href="{% url "joinus" %}" class="waves-effect waves-light">회원가입<span class="sr-only">(current)</span></a>
           </li>
           {% endif %}
           <li class="dropdown">
