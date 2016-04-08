@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^joinus/$', JoinusView.as_view(), name='joinus'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='itemdetail'),
 
     url(r'^item/$', ItemListView.as_view(), name='itemlist'),
     url(r'^item/(?P<pk>\d+)/$', ItemDeatilView.as_view(), name='itemdetail'),

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}애물단지 | My page{% endblock %}
+
+{% block content %}
+    <h1>회원아이디: {{ user.username }}</h1>
+
+    <h2>판매권 개수 : {{ user.ticket }}</h2>
+
+    <h3>양도 대기중인 애물단지</h3>
+    <ul>
+    {% for item in user.item_set.all %}
+        <li>{{ item.title }}</li>
+    {% endfor %}
+    </ul> 
+
+{% endblock %}
