@@ -18,5 +18,6 @@ urlpatterns = [
 
     url(r'^item/$', ItemListView.as_view(), name='itemlist'),
     url(r'^item/(?P<pk>\d+)/$', ItemDeatilView.as_view(), name='itemdetail'),
+    url(r'^item/(?P<pk>\d+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

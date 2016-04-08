@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}애물단지 | 상품 상세페이지{% endblock %}
+{% block title %}애물단지 | 상세페이지{% endblock %}
 
 {% block content %}
     <h1>ItemDetail</h1>
@@ -13,5 +13,11 @@
         {% for comment in item.comment_set.all %}
             <p id="{{ comment.id }}">{{ comment.user.username }}: {{ comment.content }}</p>
         {% endfor %}
+
+        <form action="/item/{{item.id}}/comments/" method="post">
+        {% csrf_token %}
+        <textarea name="content" ></textarea>
+        <input type="submit"> 
+        </form>
 
 {% endblock %}
