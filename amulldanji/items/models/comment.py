@@ -23,6 +23,6 @@ class Comment(models.Model):
         return reverse(
             "itemdetail",
             kwargs={
-                "pk": self.item.id,
+                "slug": self.item.hash_id,
             }
         )

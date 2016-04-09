@@ -10,7 +10,8 @@
   {% csrf_token %}
   <input type="text" name="title" placeholder="title" required>
   <input type="text" name="content" placeholder="content" required>
-  <input type="file" name="image" multiple/>
+  <input type="file" name="image"/>
+  <input type="file" name="content_images" multiple/>
   <input type="submit" value="포스트 등록">
 </form>
 {% endblock %}

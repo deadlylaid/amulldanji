@@ -17,8 +17,8 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
         # User
         form.instance.user = self.request.user
 
-        # Post
+        # Item
         form.instance.item = Item.objects.get(
-            pk=self.kwargs.get('pk'),
+            hash_id=self.kwargs.get('slug'),
         )
         return super(CommentCreateView, self).form_valid(form)
