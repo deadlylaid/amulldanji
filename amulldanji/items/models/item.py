@@ -5,6 +5,13 @@ from django.core.urlresolvers import reverse
 
 class Item(models.Model):
 
+    hash_id = models.CharField(
+        max_length=30,
+        blank=True,
+        null=True,
+        unique=True,
+    )
+
     user = models.ForeignKey(
             User,
             )
