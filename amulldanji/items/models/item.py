@@ -30,7 +30,7 @@ class Item(models.Model):
     created_at = models.DateTimeField(
             auto_now_add=True,
             )
-        
+
     def get_hash_id(self):
         from amulldanji.utils.hash_id import get_encoded_hash_id
         self.hash_id = get_encoded_hash_id(self)
