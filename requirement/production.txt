@@ -7,3 +7,4 @@ django-pipeline
 boto
 django-storages-redux
 django-multiupload
+hashids
