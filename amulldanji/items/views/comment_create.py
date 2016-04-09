@@ -1,11 +1,11 @@
 from django.views.generic import CreateView
 from django.shortcuts import redirect
-from items.models import Comment
+from items.models import Comment, Item
 from django.core.urlresolvers import reverse
-from items.models import Item
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CommentCreateView(CreateView):
+class CommentCreateView(LoginRequiredMixin, CreateView):
 
     model = Comment
 
@@ -14,12 +14,11 @@ class CommentCreateView(CreateView):
             ]
 
     def form_valid(self, form):
-            # User
-            form.instance.user = self.request.user
+        # User
+        form.instance.user = self.request.user
 
-            # Post
-            form.instance.item = Item.objects.get(
-                pk=self.kwargs.get('pk'),
-            )
-
-            return super(CommentCreateView, self).form_valid(form)
+        # Post
+        form.instance.item = Item.objects.get(
+            pk=self.kwargs.get('pk'),
+        )
+        return super(CommentCreateView, self).form_valid(form)

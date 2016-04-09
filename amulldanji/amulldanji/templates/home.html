@@ -37,9 +37,11 @@
           </li>
           {% if request.user.is_authenticated %}
           <li><a href="{% url "logout" %}" class="waves-effect waves-light">로그아웃<span class="sr-only">(current)</span></a>
+          <li><a href="{% url "mypage" user.id %}" class="waves-effect waves-light">마이페이지<span class="sr-only">(current)</span></a>
           </li>
           {% else %}
           <li><a href="{% url "login" %}" class="waves-effect waves-light">로그인<span class="sr-only">(current)</span></a>
+          <li><a href="{% url "joinus" %}" class="waves-effect waves-light">회원가입<span class="sr-only">(current)</span></a>
           </li>
           {% endif %}
           <li class="dropdown">
@@ -136,14 +138,17 @@
   <div class="container page-content">
     <!-- Content Row -->
     <div class="row">
+    {% for item in item_list %}
+      <a href="{% url "itemdetail" item.hash_id %}"> 
       <div class="col-md-4">
         <div class="card hoverable">
           <div class="card-image">
-            <img src="img/project1.png">
-            <span class="card-title">Video Maker</span>
+            <img src="{{ item.image.url }}">
+            <span class="card-title">{{ item.title }}</span>
           </div>
           <div class="card-content">
-            <p>Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition...</p>
+            <p>양도자: {{ item.user.username }}</p>
+            <p>1번째이미지Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition...</p>
           </div>
           <div class="card-action">
             <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
@@ -152,6 +157,8 @@
           </div>
         </div>
       </div>
+       </a>
+    {% endfor %}
       <!-- /.col-md-4 -->
       <div class="col-md-4">
         <div class="card hoverable">
@@ -160,7 +167,7 @@
             <span class="card-title">Creative Agency</span>
           </div>
           <div class="card-content">
-            <p>Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may...</p>
+            <p>2번째 이미지Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may...</p>
           </div>
           <div class="card-action">
             <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
@@ -177,7 +184,7 @@
             <span class="card-title">Photographer Portfolio</span>
           </div>
           <div class="card-content">
-            <p>Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with ...</p>
+            <p>3번째Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with ...</p>
           </div>
           <div class="card-action">
             <a href="http://mdbootstrap.com/product/magic-portfolio-photographer/">

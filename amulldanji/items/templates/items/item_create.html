@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block title %}애물단지 등록{% endblock %}
+
+{% block content %}
+<h1>애물단지 등록</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="title" required>
+  <input type="text" name="content" placeholder="content" required>
+  <input type="file" name="image" multiple/>
+  <input type="submit" value="포스트 등록">
+</form>
+{% endblock %}

@@ -10,15 +10,15 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^$', ItemListView.as_view(), name='home'),
 
     url(r'^joinus/$', JoinusView.as_view(), name='joinus'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
-    url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='itemdetail'),
+    url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='mypage'),
 
-    url(r'^item/$', ItemListView.as_view(), name='itemlist'),
-    url(r'^item/(?P<pk>\d+)/$', ItemDeatilView.as_view(), name='itemdetail'),
-    url(r'^item/(?P<pk>\d+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
+    url(r'^itemcreate/$', ItemCreateView.as_view(), name='newitem'),
+    url(r'^item/(?P<slug>\w+)/$', ItemDeatilView.as_view(), name='itemdetail'),
+    url(r'^item/(?P<slug>\w+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
