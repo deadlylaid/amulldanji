@@ -36,6 +36,7 @@
           <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
           </li>
           {% if request.user.is_authenticated %}
+          <li><a href="{% url "newitem" %}" class="waves-effect waves-light">애물단지 등록 <span class="sr-only">(current)</span></a>
           <li><a href="{% url "logout" %}" class="waves-effect waves-light">로그아웃<span class="sr-only">(current)</span></a>
           <li><a href="{% url "mypage" user.id %}" class="waves-effect waves-light">마이페이지<span class="sr-only">(current)</span></a>
           </li>
@@ -143,7 +144,7 @@
       <div class="col-md-4">
         <div class="card hoverable">
           <div class="card-image">
-            <img src="{{ item.image.url }}">
+            <img src="{%if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}">
             <span class="card-title">{{ item.title }}</span>
           </div>
           <div class="card-content">
