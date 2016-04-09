@@ -41,7 +41,7 @@ class Item(models.Model):
             return reverse(
                 "itemdetail",
                 kwargs={
-                    "pk": self.id,
+                    "slug": self.hash_id,
                 }
             )
 

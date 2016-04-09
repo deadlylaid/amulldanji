@@ -8,3 +8,4 @@ class ItemDeatilView(DetailView):
 
     template_name = "items/detail.html"
     object_context_name = "item"
+    slug_field = "hash_id"
