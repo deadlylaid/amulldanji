@@ -1,3 +1,4 @@
+{% load pipeline %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +7,8 @@
 
  <!-- Font Awesome -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="{% static  "css/bootstrap.min.css"%}"type="text/css">
 
- <link rel="stylesheet" href="{% static  "css/mdb.css"%}"type="text/css">
- 
- <link rel="stylesheet" href="{% static  "css/style.css"%}"type="text/css">
-
+    {% stylesheet 'applications' %}
 </head>
 <body>
     {% include "partials/header.html" %}
@@ -20,5 +17,7 @@
     {% endblock %}
 
     {% include "partials/footer.html" %}
+
+    {% javascript 'main_js' %}
 </body>
 </html>
