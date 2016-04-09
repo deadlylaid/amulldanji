@@ -18,7 +18,9 @@ urlpatterns = [
     url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='mypage'),
 
     url(r'^itemcreate/$', new_item, name='newitem'),
+
     url(r'^item/(?P<slug>\w+)/$', ItemDeatilView.as_view(), name='itemdetail'),
     url(r'^item/(?P<slug>\w+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
+    url(r'^item/(?P<slug>\w+)/transfer/$', item_transfer, name='item_transfer'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
