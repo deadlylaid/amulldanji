@@ -3,6 +3,7 @@
 {% block title %}애물단지 | 상세페이지{% endblock %}
 
 {% block content %}
+<div class="data" data-user-ticket={{ request.user.ticket }}>
     <h1>ItemDetail</h1>
        <h2>업로더 :  {{ item.user }}</h2>
        <p> 이미지 :<img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ item.title }}" width="400px" height="600px"/></p>
@@ -15,7 +16,7 @@
         {% endfor %}
 
         {# Form POST, AJAX => Refactoring #}
-        <a href="{% url "item_transfer" item.hash_id %}">양도받기</a>
+        <a id="transfer" href="{% url "item_transfer" item.hash_id %}">양도받기</a>
 
         <h2>댓글</h2>
         {% for comment in item.comment_set.all %}
@@ -26,5 +27,6 @@
         {% csrf_token %}
         <textarea name="content" ></textarea>
         <input type="submit"> 
-        </form>
+    </form>
+</div>
 {% endblock %}

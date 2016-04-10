@@ -23,11 +23,11 @@ STATICFILES_FINDERS = (
 # 각각 application.css / style.js 로 컴파일 합니다.
 PIPELINE = {
     'STYLESHEETS': {
-        'applications': {
+        'amulldanji': {
             'source_filenames': (
               'css/*.css',
             ),
-            'output_filename': 'css/application.css',
+            'output_filename': 'css/amulldanji.css',
         },
         'vendor': {
             'source_filenames': (
@@ -37,11 +37,11 @@ PIPELINE = {
         },
     },
     'JAVASCRIPT': {
-        'main_js': {
+        'amulldanji': {
             'source_filenames': (
                 'js/*.js',
             ),
-            'output_filename': 'js/main.js',
+            'output_filename': 'js/amulldanji.js',
             },
         'vendor': {
             'source_filenames': (
