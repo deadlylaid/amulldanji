@@ -3,13 +3,12 @@
 {% block title %}애물단지 | 리스트{% endblock %}
 
 {% block content %}
-    <h1>ItemList</h1>
-    
-    <ul>
-        {% for item in item_list %}
-<img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ post.title }}" width="150px" height="300px"/>
+<h1>ItemList</h1>
+
+<ul>
+    {% for item in item_list %} <img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ post.title }}" width="150px" height="300px"/>
         <li>{{ item.user }} {{ item.title }}</li>
 
-        {% endfor %} 
-    </ul>
+    {% endfor %} 
+</ul>
 {% endblock %}
