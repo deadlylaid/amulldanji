@@ -45,7 +45,9 @@ PIPELINE = {
             },
         'vendor': {
             'source_filenames': (
-              'js/vendor/*.js',
+              'js/vendor/jquery.min.js',
+              'js/vendor/bootstrap.min.js',
+              'js/vendor/mdb.js',
             ),
             'output_filename': 'js/vendor/vendor.js',
         },

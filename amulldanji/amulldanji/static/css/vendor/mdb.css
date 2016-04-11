@@ -7713,9 +7713,9 @@ textarea.materialize-textarea {
   border-radius: 0;
   outline: none;
   height: 3rem;
-  width: 100%;
+  width: 30%;
   font-size: 1rem;
-  margin: 0 0 15px 0;
+  margin: 1.1%;
   padding: 0;
   box-shadow: none;
   -webkit-box-sizing: content-box;

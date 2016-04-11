@@ -4,26 +4,49 @@
 
 {% block content %}
 <div class="data" data-user-ticket={{ request.user.ticket }}>
-    <h1>ItemDetail</h1>
-       <h2>업로더 :  {{ item.user }}</h2>
-       <p> 이미지 :<img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ item.title }}" width="400px" height="600px"/></p>
-       <h1>제목 :  {{ item.title }} </h2>
-       <h3>내용 : {{ item.content }} </h3>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-4">
+            <!--Image Card-->
+            <div class="card hoverable">
+                <div class="card-image">
+                    <div class="view overlay hm-white-slight z-depth-1">                
+                        <img src="{% if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}" alt="{{ item.title }}" width="400" height=auto;/>
+                        <a href="#">
+                            <div class="mask waves-effect"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.content }}</p>
+                </div>
+                <!--Buttons-->
+                <div class="card-btn text-center">
+                    {# Form POST, AJAX => Refactoring #}
+                    <a class="btn btn-success waves-effect waves-light" id="transfer" href="{% url "item_transfer" item.hash_id %}">양도받기</a>
+                </div>
+                <!--/.Buttons-->
+                </div>
+            <!--Image Card-->
+            </div>
+      <div class="col-md-2 overflow-scroll" style="height:600px;"> 
+            {% for content_image in item.images.all %}
+                <p><img src="{% if content_image.image %}{{content_image.image.url}}{% else %}http://placehold.it/200x150{% endif %}" alt="{{item.title}}" width="200px" height="auto" alt=""/></p>
+            {% endfor %}
+      </div>
+    <!-- row -->
+    </div>
+    
+    <div class ="verticalcenter text-center thin-100-italic">
+        <p>업로더 :  {{ item.user }}</p>
+    </div>
 
-        <h1>상세 이미지 리스트</h1>
-        {% for content_image in item.images.all %}
-            <p><img src="{% if content_image.image %}{{content_image.image.url}}{% else %}http://placehold.it/200x150{% endif %}" alt="{{item.title}}" width="400px" height="600px" alt=""/></p>
-        {% endfor %}
+    <h2>댓글</h2>
+    {% for comment in item.comment_set.all %}
+        <p id="{{ comment.id }}">{{ comment.user.username }}: {{ comment.content }}</p>
+    {% endfor %}
 
-        {# Form POST, AJAX => Refactoring #}
-        <a id="transfer" href="{% url "item_transfer" item.hash_id %}">양도받기</a>
-
-        <h2>댓글</h2>
-        {% for comment in item.comment_set.all %}
-            <p id="{{ comment.id }}">{{ comment.user.username }}: {{ comment.content }}</p>
-        {% endfor %}
-
-        <form action="/item/{{item.hash_id}}/comments/" method="post">
+    <form action="/item/{{item.hash_id}}/comments/" method="post">
         {% csrf_token %}
         <textarea name="content" ></textarea>
         <input type="submit"> 

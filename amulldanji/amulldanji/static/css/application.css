@@ -1,7 +1,41 @@
-footer#footer{
-    background-color:red;
+.button1{
+    margin : 10px 50%;
 }
 
-header#header{
-    background-color:blue;
+.min-height{
+    min-height:67vh;
+}
+
+.center{
+    width : 100%;
+    margin : 0 auto;
+}
+
+.file-field input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.overflow-scroll{
+    overflow:scroll;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }

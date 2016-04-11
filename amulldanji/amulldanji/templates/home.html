@@ -1,78 +1,9 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>애물단지</title>
+{% extends "base.html" %}
 
- <!-- Font Awesome -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="{% static  "css/bootstrap.min.css"%}"type="text/css">
+{% block title %}애물단지{% endblock %}
 
- <link rel="stylesheet" href="{% static  "css/mdb.css"%}"type="text/css">
- 
- <link rel="stylesheet" href="{% static  "css/style.css"%}"type="text/css">
-
-</head>
-
-<body>
-  <!-- Navigation -->
-  <nav class="navbar z-depth-2 info-color">
-    <div class="container ">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand waves-effect waves-light" href="#">애물단지</a>
-      </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="#products" class="waves-effect waves-light">Products <span class="sr-only">(current)</span></a>
-          </li>
-          {% if request.user.is_authenticated %}
-          <li><a href="{% url "newitem" %}" class="waves-effect waves-light">애물단지 등록 <span class="sr-only">(current)</span></a>
-          <li><a href="{% url "logout" %}" class="waves-effect waves-light">로그아웃<span class="sr-only">(current)</span></a>
-          <li><a href="{% url "mypage" user.id %}" class="waves-effect waves-light">마이페이지<span class="sr-only">(current)</span></a>
-          </li>
-          {% else %}
-          <li><a href="{% url "login" %}" class="waves-effect waves-light">로그인<span class="sr-only">(current)</span></a>
-          <li><a href="{% url "joinus" %}" class="waves-effect waves-light">회원가입<span class="sr-only">(current)</span></a>
-          </li>
-          {% endif %}
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" role="button" aria-expanded="false">List (click to expand) <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">Video Maker</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/material-design-for-bootstrap/">Material Design for Bootstrap</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">Creative Agency</a>
-              </li>
-              <li><a href="http://mdbootstrap.com/product/magic-portfolio-photographer">Photographer Portfolio</a>
-              </li>
-              <li class="divider"></li>
-              <li><a href="#footer">Footer</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-right waves-effect waves-light" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-        </form>
-      </div>
-    </div>
-  </nav>
-
-
- <!-- carousel -->
+{% block carousel %}
+<!-- carousel -->
   <div id="carousel-example-generic" class="carousel slide carousel-fade">
 
     <!-- Indicators -->
@@ -90,8 +21,8 @@
       <div class="item active">
         <div class="carousel-caption">
           <div data-animation="animated fadeInRightBig">
-            <h4 class="h2-responsive">필요없다고 버리는게</h4>
-            <h2 class="h4-responsive">말이 되냐</h2>
+            <h4 class="h4-responsive">필요없다고 버리는게</h4>
+            <h2 class="h2-responsive">말이 되냐</h2>
           </div>
         </div>
       </div>
@@ -101,8 +32,8 @@
       <div class="item">
         <div class="carousel-caption">
           <div data-animation="animated fadeInDownBig">
-            <h2 class="h2-responsive">This is the caption for slide 1</h2>
-            <h4 class="h4-responsive">This is the caption for slide 1</h4>
+            <h4 class="h4-responsive">버릴 거면 차라리</h4>
+            <h2 class="h2-responsive">개를 줘라</h2>
           </div>
         </div>
       </div>
@@ -112,8 +43,8 @@
       <div class="item">
         <div class="carousel-caption">
           <div data-animation="animated fadeInLeftBig">
-            <h2 class="h2-responsive">This is the caption for slide 1</h2>
-            <h4 class="h4-responsive">This is the caption for slide 1</h4>
+            <h4 class="h4-responsive">이것이 바로</h4>
+            <h2 class="h2-responsive">애물단지</h2>
           </div>
         </div>
       </div>
@@ -121,7 +52,8 @@
 
     </div>
     <!-- /.carousel-inner -->
-
+{% endblock %}
+{% block content %}
     <!-- Controls -->
     <a class="left carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="prev">
       <span class="fa fa fa-angle-left waves-effect waves-light"></span>
@@ -149,7 +81,6 @@
           </div>
           <div class="card-content">
             <p>양도자: {{ item.user.username }}</p>
-            <p>1번째이미지Some things just look better in motion and in the highly competitive world of fashion, finding an edge over the competition...</p>
           </div>
           <div class="card-action">
             <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
@@ -160,41 +91,6 @@
       </div>
        </a>
     {% endfor %}
-      <!-- /.col-md-4 -->
-      <div class="col-md-4">
-        <div class="card hoverable">
-          <div class="card-image">
-            <img src="img/project3.png">
-            <span class="card-title">Creative Agency</span>
-          </div>
-          <div class="card-content">
-            <p>2번째 이미지Did you know that a strong brand is absolutely essential for generating sales and growth on Social Media? You may...</p>
-          </div>
-          <div class="card-action">
-            <a href="http://mdbootstrap.com/product/magic-portfolio-for-creative-agency">
-              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- /.col-md-4 -->
-      <div class="col-md-4">
-        <div class="card hoverable">
-          <div class="card-image">
-            <img src="img/project4.png">
-            <span class="card-title">Photographer Portfolio</span>
-          </div>
-          <div class="card-content">
-            <p>3번째Photography is an art of observation. It’s about finding something interesting an ordinary place… I’ve found it has little to do with ...</p>
-          </div>
-          <div class="card-action">
-            <a href="http://mdbootstrap.com/product/magic-portfolio-photographer/">
-              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- /.col-md-4 -->
     </div>
     <!-- /.row -->
 
@@ -202,68 +98,4 @@
   <!-- /.container -->
   </div>
   <!--/. Page content -->
-
-
-
-  <!-- Footer -->
-  <footer class="page-footer info-color darken-1" if="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-md-offset-1">
-          <p class="white-text center-on-small-only">GET STARTED</p>
-          <p class="white-text center-on-small-only">Register for free and start to create amazing things.</p>
-          <a href="http://mdbootstrap.com/getting-started/" class="btn btn-danger waves-effect waves-light">Get started!</a>
-
-        </div>
-        <hr class="hidden-lg hidden-md">
-
-        <div class="col-md-2">
-          <p class="white-text center-on-small-only">USEFUL LINKS</p>
-          <ul>
-            <li><a href="#" data-toggle="modal" data-target="#myModal" class="grey-text text-lighten-3" href="#!">Contact us</a>
-            </li>
-            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">About MDB</a>
-            </li>
-            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/forums/forum/support/" target="_blank">Support</a>
-            </li>
-            <li><a class="grey-text text-lighten-3" href="http://mdbootstrap.com/forums/forum/bugs/" target="_blank">Bug report</a>
-            </li>
-
-
-          </ul>
-        </div>
-        <hr class="hidden-lg hidden-md">
-
-        <div class="col-md-3 text-center">
-          <p class="white-text text-center"> SOCIAL MEDIA</p>
-          <a target="_blank" href="https://www.facebook.com/mdbootstrap" class="btn-floating btn-large fb-bg waves-effect waves-light"><i class="fa fa-facebook"> </i></a>
-          <a target="_blank" href="https://twitter.com/MDBootstrap" class="btn-floating btn-large tw-bg waves-effect waves-light"><i class="fa fa-twitter"> </i></a>
-          <a target="_blank" href="https://plus.google.com/u/0/b/107863090883699620484/107863090883699620484/posts" class="btn-floating btn-large gplus-bg waves-effect waves-light"><i class="fa fa-google-plus"> </i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="col-md-10 col-md-offset-1"> © 2015 Copyright <a href="http://www.MDBootstrap.com">MDBootstrap.com </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-  <!--/. Page content -->
-
-<script type="text/javascript" src="{% static "js/jquery.min.js"%}"></script>
-<script type="text/javascript" src="{% static "js/bootstrap.min.js"%}"></script>
-
-<script type="text/javascript" src="{% static "js/mdb.js"%}"></script>
-</body>
-
-</html>
+{% endblock %}
