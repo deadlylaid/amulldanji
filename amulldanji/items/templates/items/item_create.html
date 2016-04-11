@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block title %}애물단지 등록{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-offset-4">
+    <h1>애물단지 등록</h1>
+    </div>
+</div>
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-offset-4">
+          <input type="text" name="title" placeholder="제목입력" required>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-offset-4">
+            <div class="input-field col-md-12">
+              <textarea id="textarea1" name="content" class="materialize-textarea" required></textarea>
+              <label for="textarea1">내용 설명</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-offset-4">
+            <div class="file-field input-field">
+              <button type="button"  class="btn btn-default waves-effect waves-light">
+                <span>대표이미지 선택</span>
+                <input type="file" name="image"/>
+              </button>
+            </div>
+
+            <div class="file-field input-field">
+              <button type="button" class="btn btn-default waves-effect waves-light">
+                <span>내용 이미지 선택</span>
+                <input type="file" name="content_images" multiple/>
+              </button>  
+            </div>
+        </div>
+    </div>
+ <button type="submit" class="button1 btn btn-primary btn-sm">애물단지 등록</button>
+
+   </div>
+</form>
+{% endblock %}

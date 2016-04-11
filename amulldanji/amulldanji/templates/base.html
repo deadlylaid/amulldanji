@@ -1,0 +1,29 @@
+{% load pipeline %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}애물단지|{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    {% stylesheet 'vendor' %}
+    {% stylesheet 'amulldanji' %}
+</head>
+<body>
+    {% include "partials/header.html" %}
+    
+    {% block carousel %}
+    {% endblock %}
+    <main class="min-height">
+    {% block content %}
+    {% endblock %}
+    </main>
+    {% include "partials/footer.html" %}
+    
+    {% javascript 'vendor' %}
+    {% javascript 'amulldanji' %}
+</body>
+</html>

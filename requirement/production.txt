@@ -1,0 +1,10 @@
+Django==1.9.4
+requests
+Pillow
+python-social-auth
+djangorestframework
+django-pipeline
+boto
+django-storages-redux
+django-multiupload
+hashids

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}애물단지 | 로그인{% endblock %}
+
+{% block content %}
+    <h1>로그인</h1>
+    <form action="{% url "login" %}" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="id" placeholder="아이디를 입력하세요">
+        <input type="password" name="pw" placeholder="비밀번호를 입력하세요">
+         <button type="submit" class="button1 btn btn-primary btn-sm">로그인</button>
+    </form>  
+{% endblock %}
