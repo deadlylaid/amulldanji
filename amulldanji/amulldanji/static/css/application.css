@@ -48,3 +48,7 @@
 /* These are the classes that are going to be applied: */
 .column { float: left; }
 .size-1of3 { width: 33.333%; }
+
+.width100{
+    width: 100%
+}
