@@ -45,5 +45,20 @@ class Item(models.Model):
                 }
             )
 
+    # it will send model's attr when api needs json data
+    def send_object_dic(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'content': self.content,
+            'image': self.image_url,
+            }
+
+    @property
+    def image_url(self):
+        if self.image.url:
+            return self.image.url
+        return "http://placeholde.it/350x150"
+
     def __str__(self):
         return self.title
