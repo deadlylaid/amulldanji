@@ -4,6 +4,7 @@ from django.contrib import admin
 from amulldanji.views import HomeView
 from users.views import *
 from items.views import *
+from items.api import *
 
 from django.conf.urls.static import static
 from django.conf import settings
@@ -17,8 +18,8 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='mypage'),
 
+    url(r'^apilist/$', PostListApiView.as_view(), name='itemapi'),
     url(r'^itemcreate/$', new_item, name='newitem'),
-
     url(r'^item/(?P<slug>\w+)/$', ItemDeatilView.as_view(), name='itemdetail'),
     url(r'^item/(?P<slug>\w+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
     url(r'^item/(?P<slug>\w+)/transfer/$', item_transfer, name='item_transfer'),
