@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='mypage'),
 
     url(r'^apilist/$', ItemListApiView.as_view(), name='itemapi'),
+    url(r'^apidetail/$', ItemDetailApiView.as_view(), name='detailapi'),
+
     url(r'^itemcreate/$', new_item, name='newitem'),
     url(r'^item/(?P<slug>\w+)/$', ItemDeatilView.as_view(), name='itemdetail'),
     url(r'^item/(?P<slug>\w+)/comments/$', CommentCreateView.as_view(), name='item-comments'),
