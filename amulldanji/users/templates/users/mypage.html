@@ -3,15 +3,28 @@
 {% block title %}애물단지 | My page{% endblock %}
 
 {% block content %}
-    <h1>회원아이디: {{ user.username }}</h1>
+<div class="row">
+  <div class="col-md-offset-5">
+    <h1>마이 페이지</h1>
+  </div>
+</div>
 
-    <h2>판매권 개수 : {{ user.ticket }}</h2>
-
-    <h3>양도 대기중인 애물단지</h3>
-    <ul>
-    {% for item in user.item_set.all %}
-        <li>{{ item.title }}</li>
-    {% endfor %}
-    </ul> 
-
+<div class="row">
+    <div class="col-md-offset-3 col-md-6">
+        <ul class="collection with-header">
+            <li class="collection-header text-align">
+                <h4>아이디 : {{user.username}}</h4></li>
+            <li class="collection-item">
+                <h5>티켓 수 : {{user.ticket}}</h5></li>
+            <li class="collection-item">올려놓은 애물단지</li>
+            {% for item in user.item_set.all %}
+                {% if item %}
+                    <li class="collection-item"><a href="{% url "itemdetail" item.hash_id %}">{{ item.title }}</a></li>
+                {% else %}
+                    <li class="collection-item">애물단지가 없습니다!</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

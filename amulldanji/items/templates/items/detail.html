@@ -31,9 +31,10 @@
             </div>
       <div class="col-md-2 overflow-scroll" style="height:600px;"> 
             {% for content_image in item.images.all %}
-                <p><img src="{% if content_image.image %}{{content_image.image.url}}{% else %}http://placehold.it/200x150{% endif %}" alt="{{item.title}}" width="200px" height="auto" alt=""/></p>
+            <p><img src="{% if content_image.image %}{{content_image.image.url}}{% else %}http://placehold.it/200x150{% endif %}" alt="{{item.title}}" width="200px" height="auto" alt=""/></p>
             {% endfor %}
       </div>
+
     <!-- row -->
     </div>
     
@@ -49,7 +50,7 @@
     <form action="/item/{{item.hash_id}}/comments/" method="post">
         {% csrf_token %}
         <textarea name="content" ></textarea>
-        <input type="submit"> 
+        <button type="submit" class="button1 btn btn-primary btn-sm">댓글 쓰기</button>
     </form>
 </div>
 {% endblock %}
