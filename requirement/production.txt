@@ -8,3 +8,4 @@ boto
 django-storages-redux
 django-multiupload
 hashids
+psycopg2
