@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^mypage/(?P<pk>\d+)/$', MyPageView.as_view(), name='mypage'),
 
-    url(r'^apilist/$', PostListApiView.as_view(), name='itemapi'),
+    url(r'^apilist/$', ItemListApiView.as_view(), name='itemapi'),
     url(r'^itemcreate/$', new_item, name='newitem'),
     url(r'^item/(?P<slug>\w+)/$', ItemDeatilView.as_view(), name='itemdetail'),
     url(r'^item/(?P<slug>\w+)/comments/$', CommentCreateView.as_view(), name='item-comments'),

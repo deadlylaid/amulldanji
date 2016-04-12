@@ -1,1 +1,1 @@
-from .item_list import PostListApiView
+from .item_list import ItemListApiView
