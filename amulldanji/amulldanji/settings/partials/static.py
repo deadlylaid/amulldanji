@@ -48,6 +48,7 @@ PIPELINE = {
               'js/vendor/jquery.min.js',
               'js/vendor/bootstrap.min.js',
               'js/vendor/mdb.js',
+              'js/vendor/salvattore.min.js',
             ),
             'output_filename': 'js/vendor/vendor.js',
         },

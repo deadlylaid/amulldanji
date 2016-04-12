@@ -39,3 +39,12 @@
 .text-center {
     text-align: center;
 }
+
+
+#grid[data-columns]::before {
+    content: '3 .col-lg-4';
+}
+
+/* These are the classes that are going to be applied: */
+.column { float: left; }
+.size-1of3 { width: 33.333%; }
