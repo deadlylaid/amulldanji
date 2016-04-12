@@ -49,6 +49,7 @@ class Item(models.Model):
     def send_object_dic(self):
         return {
             'id': self.id,
+            'user': self.user.username,
             'title': self.title,
             'content': self.content,
             'image': self.image_url,
