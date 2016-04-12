@@ -53,6 +53,7 @@
     </div>
     <!-- /.carousel-inner -->
 {% endblock %}
+
 {% block content %}
     <!-- Controls -->
     <a class="left carousel-control new-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -67,35 +68,33 @@
   </div>
   <!-- /.carousel -->
 
-  <!-- Page content -->
-  <div class="container page-content">
+<!-- Page content -->
+<div class="container page-content">
     <!-- Content Row -->
-    <div class="row">
-    {% for item in item_list %}
-      <a href="{% url "itemdetail" item.hash_id %}"> 
-      <div class="col-md-4">
-        <div class="card hoverable">
-          <div class="card-image">
-            <img src="{%if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}">
-            <span class="card-title">{{ item.title }}</span>
-          </div>
-          <div class="card-content">
-            <p>양도자: {{ item.user.username }}</p>
-          </div>
-          <div class="card-action">
-            <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
-              <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
-            </a>
-          </div>
+        <div class="row"id="grid" data-columns>
+            {% for item in item_list %}
+                <a href="{% url "itemdetail" item.hash_id %}"> 
+                    <div>
+                        <div class="card hoverable">
+                            <div class="card-image">
+                                <img src="{%if item.image %}{{ item.image.url }}{% else %}http://placehold.it/200x150{% endif %}">
+                                <span class="card-title">{{ item.title }}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>양도자: {{ item.user.username }}</p>
+                            </div>
+                            <div class="card-action">
+                            <a href="http://mdbootstrap.com/product/magic-portfolio-for-video-maker/">
+                            <button type="button" class="btn btn-info waves-effect waves-light">Read more</button>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
         </div>
-      </div>
-       </a>
-    {% endfor %}
-    </div>
     <!-- /.row -->
-
-  </div>
-  <!-- /.container -->
-  </div>
-  <!--/. Page content -->
+    <!-- /.container -->
+</div>
+<!--/. Page content -->
 {% endblock %}
