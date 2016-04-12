@@ -43,10 +43,13 @@
     </div>
 
     <h2>댓글</h2>
-    {% for comment in item.comment_set.all %}
+    <div id="comment" data-item-slug={{ item.hash_id }}>
+    </div>
+    <!--    {% for comment in item.comment_set.all %}
         <p id="{{ comment.id }}">{{ comment.user.username }}: {{ comment.content }}</p>
     {% endfor %}
-
+    -->
+    {# 왜 이건 주석처리가 되지 않을까?#}
     <form action="/item/{{item.hash_id}}/comments/" method="post">
         {% csrf_token %}
         <textarea name="content" ></textarea>
