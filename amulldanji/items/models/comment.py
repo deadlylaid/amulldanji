@@ -26,3 +26,10 @@ class Comment(models.Model):
                 "slug": self.item.hash_id,
             }
         )
+
+    @property
+    def send_object_dic(self):
+        return {
+                "user": self.user.username,
+                "content": self.content,
+                }
