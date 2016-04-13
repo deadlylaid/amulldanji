@@ -23,7 +23,12 @@
                 <!--Buttons-->
                 <div class="card-btn text-center">
                     {# Form POST, AJAX => Refactoring #}
-                    <a class="btn btn-success waves-effect waves-light" id="transfer" href="{% url "item_transfer" item.hash_id %}">양도받기</a>
+                    {% if request.user.username == item.user.username %}  
+                        <a class="btn btn-success waves-effect waves-light disabled" id="transfer" href="{% url "item_transfer" item.hash_id %}">업로더 구매 불가</a>
+                    {% else %}
+                        <a class="btn btn-success waves-effect waves-light" id="transfer" href="{% url "item_transfer" item.hash_id %}">양도받기</a>
+                    {% endif %}
+
                 </div>
                 <!--/.Buttons-->
                 </div>
@@ -38,13 +43,11 @@
     <!-- row -->
     </div>
     
-    <div class ="verticalcenter text-center thin-100-italic">
-        <p>업로더 :  {{ item.user }}</p>
-    </div>
-
-    <h2>댓글</h2>
-    <div id="comment" data-item-slug={{ item.hash_id }}>
-    </div>
+    <div class="row">
+        <div class="col-md-offset-3 col-md-5">
+        <h3>댓글</h3>
+            <div id="comment" data-item-slug={{ item.hash_id }}>
+            </div>
     <!--    {% for comment in item.comment_set.all %}
         <p id="{{ comment.id }}">{{ comment.user.username }}: {{ comment.content }}</p>
     {% endfor %}
@@ -52,8 +55,11 @@
     {# 왜 이건 주석처리가 되지 않을까?#}
     <form action="/item/{{item.hash_id}}/comments/" method="post">
         {% csrf_token %}
-        <textarea name="content" id="input_comment"></textarea>
+        <textarea name="content" id="input_comment" required></textarea>
         <button type="submit" id="input_comment_button" class="button1 btn btn-primary btn-sm">댓글 쓰기</button>
     </form>
+
+        </div>
+    </div>
 </div>
 {% endblock %}
