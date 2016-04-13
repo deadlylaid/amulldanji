@@ -52,8 +52,8 @@
     {# 왜 이건 주석처리가 되지 않을까?#}
     <form action="/item/{{item.hash_id}}/comments/" method="post">
         {% csrf_token %}
-        <textarea name="content" ></textarea>
-        <button type="submit" class="button1 btn btn-primary btn-sm">댓글 쓰기</button>
+        <textarea name="content" id="input_comment"></textarea>
+        <button type="submit" id="input_comment_button" class="button1 btn btn-primary btn-sm">댓글 쓰기</button>
     </form>
 </div>
 {% endblock %}
