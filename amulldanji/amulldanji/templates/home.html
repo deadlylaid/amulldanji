@@ -73,11 +73,7 @@
     <!-- Content Row -->
         <div class="row"id="grid" data-columns>
             {% for item in item_list %}
-<<<<<<< Updated upstream
-                <a href="{% url "itemdetail" item.hash_id %}"> 
-=======
                 <a class="item_click" href="{% url "itemdetail" item.hash_id %}" data-click-point="{{item.click_point}}" data-item-slug="{{item.hash_id}}" >
->>>>>>> Stashed changes
                     <div>
                         <div class="card hoverable">
                             <div class="card-image">
