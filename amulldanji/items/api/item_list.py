@@ -10,8 +10,7 @@ class ItemListApiView(APIView):
         items = Item.objects.all()
 
         data = [
-
-            item.send_object_dic()
+            item.send_click_point()
             for item in items
         ]
         return Response(

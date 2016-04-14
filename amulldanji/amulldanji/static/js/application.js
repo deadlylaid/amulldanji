@@ -38,17 +38,24 @@
 //input comment used ajax
 (function(){
    
-   var comment_content = $("#input_comment").val();
+   var comment_content = $("#input_comment");
+   var comment_list = $("#comment");
+
    var item_slug = $("#comment").data("item-slug");
-   var api_url = "/item/"+ item_slug +"/comments/";
 
    var comment_create_url = "/api/"+ item_slug +"/comments/";
 
-   var button = $("#input_comment_button");
+    //BUTTON CLICK
+   $('#input_comment_button').on('click',function(event){   
 
-    $('#input_comment_button').on('click',function(event){   
+        comment = comment_content.val();
+        
+        console.log(comment);
+        console.log(comment_content);
+        console.log(item_slug);
+        console.log(comment_create_url);
 
-       // Get csrf_token 
+        // Get csrf_token 
         function getCookie(name) {
             var cookieValue = null;
             if (document.cookie && document.cookie != '') {
@@ -66,8 +73,7 @@
         }
         var csrftoken = getCookie('csrftoken');
         
-        
-    
+            
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
             return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -83,14 +89,24 @@
 
  
         $.ajax({
+            type:'POST',
             url:comment_create_url,
-            type:"POST",
             data:{
-            'comment': comment_content, 
-            'csrf': csrftoken
+            comment: comment,
+            slug: item_slug,
             },
             success:function(input_comment){
-            alert(input_comment); 
+
+                console.log(input_comment);
+                console.log(input_comment.comment_id);
+                comment_dic = jQuery.parseJSON(input_comment.comment_id);
+                console.log(comment_dic.user_id);
+
+                comment_user = comment_dic.user_id
+                comment_list.append(
+                    "<p>"+comment_user+" : "+comment+"</p>"
+                )
+                comment_content.val(""); 
             }
         }); 
     });
