@@ -1,6 +1,9 @@
 # Amulldanji
 
-### Welcome to Amulldanji Project!!
+## About Project 
+* Online thrift shop without money transaction
+  * front-end : MDbootstrap, css, html, jquery
+  * back-end : python, django, django-rest-framework, postgreSQL
 
 
 ## Config
