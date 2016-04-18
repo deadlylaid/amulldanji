@@ -25,13 +25,15 @@ PIPELINE = {
     'STYLESHEETS': {
         'amulldanji': {
             'source_filenames': (
-              'css/*.css',
+              'css/application.css',
             ),
             'output_filename': 'css/amulldanji.css',
         },
         'vendor': {
             'source_filenames': (
-              'css/vendor/*.css',
+              'css/vendor/bootstrap.min.css',
+              'css/vendor/mdb.css',
+              'css/vendor/style.css',
             ),
             'output_filename': 'css/vendor/vendor.css',
         },
@@ -39,7 +41,7 @@ PIPELINE = {
     'JAVASCRIPT': {
         'amulldanji': {
             'source_filenames': (
-                'js/*.js',
+                'js/application.js',
             ),
             'output_filename': 'js/amulldanji.js',
             },
@@ -57,9 +59,5 @@ PIPELINE = {
 
 # yuglify -> CSS, JS 파일을 압축해줍니다.
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
-
-# sass -> SASS 파일을 CSS로 컴파일 해줍니다.
-PIPELINE['COMPILERS'] = (
-          'pipeline.compilers.sass.SASSCompiler',
-          )
+# PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
