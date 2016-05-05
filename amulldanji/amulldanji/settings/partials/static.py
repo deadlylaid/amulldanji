@@ -57,7 +57,7 @@ PIPELINE = {
 
 # yuglify -> CSS, JS 파일을 압축해줍니다.
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
 
 # sass -> SASS 파일을 CSS로 컴파일 해줍니다.
 PIPELINE['COMPILERS'] = (
